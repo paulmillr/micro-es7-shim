@@ -2,7 +2,7 @@
 
 No-bullshit super-simple es7 collections shim for `Array#includes`, `Object.values`, `Object.entries`.
 
-Includes [`Symbol.unscopables` fix](https://bugs.chromium.org/p/v8/issues/detail?id=5059) for `Array`
+Includes [`Symbol.unscopables` fix](https://bugs.chromium.org/p/v8/issues/detail?id=5059) for `Array`.
 
 ## Usage
 
@@ -10,6 +10,10 @@ Includes [`Symbol.unscopables` fix](https://bugs.chromium.org/p/v8/issues/detail
 require('micro-es7-shim');
 // That's all folks.
 ```
+
+## Compatibility
+
+Node.js `4.x` or any other runtime that supports ES6 method declarations and arrow functions, symbols, `Array#findIndex`, and `Number.isNaN`.
 
 ## License
 
