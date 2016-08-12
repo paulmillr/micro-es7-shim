@@ -2,6 +2,8 @@
 
 No-bullshit super-simple es7 collections shim for `Array#includes`, `Object.values`, `Object.entries`.
 
+Includes [`Symbol.unscopables` fix](https://bugs.chromium.org/p/v8/issues/detail?id=5059) for `Array`
+
 ## License
 
 MIT
