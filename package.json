@@ -1,29 +1,32 @@
 {
   "name": "micro-es7-shim",
   "version": "0.1.0",
-  "description": "No-bullshit super-simple es7 collections shim for Array#includes, Object.values, Object.entries",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulmillr/micro-es7-shim.git"
-  },
+  "description": "No-bullshit super-simple ESnext shim for Node.js LTS",
   "keywords": [
-    "es7",
+    "esnext",
     "shim",
     "polyfill",
-    "array",
-    "includes",
     "object",
+    "entries",
     "values",
-    "entries"
+    "promise",
+    "try",
+    "finally"
   ],
-  "author": "Alexey Shvaika, Paul Miller (http://paulmillr.com)",
+  "bugs": "https://github.com/paulmillr/micro-es7-shim/issues",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/paulmillr/micro-es7-shim/issues"
+  "author": "Aleksey Shvayka, Paul Miller (http://paulmillr.com)",
+  "repository": "paulmillr/micro-es7-shim",
+  "scripts": {
+    "test:object": "test262-harness test262/test/**/*.js --prelude index.js",
+    "test:promise": "mocha --require index.js",
+    "test": "npm run test:object && npm run test:promise"
   },
-  "homepage": "https://github.com/paulmillr/micro-es7-shim#readme"
+  "devDependencies": {
+    "test262-harness": "hax/test262-harness#patch-1",
+    "mocha": "^3"
+  },
+  "engines": {
+    "node": ">= 6.10"
+  }
 }
