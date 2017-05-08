@@ -6,6 +6,7 @@ Array.prototype[Symbol.unscopables].includes = true;
 const install = (target, methods) => {
   Object.keys(methods).forEach(key => {
     if (target.hasOwnProperty(key)) return;
+
     Object.defineProperty(target, key, {
       value: methods[key],
       writable: true,
@@ -14,13 +15,24 @@ const install = (target, methods) => {
   });
 };
 
+const keys = (target, fn) => {
+  const res = [];
 
+  Object.getOwnPropertyNames(target).forEach(key => {
+    const desc = Object.getOwnPropertyDescriptor(target, key);
+    if (desc && desc.enumerable) res.push(fn(key));
+  });
+
+  return res;
+};
 
 install(Object, {
-  values(object) {
-    return Object.keys(object).map(key => object[key]);
+  entries(obj) {
+    return keys(obj, key => [key, obj[key]]);
   },
-  entries(object) {
-    return Object.keys(object).map(key => [key, object[key]]);
+  values(obj) {
+    return keys(obj, key => obj[key]);
+  },
+});
   },
 });
