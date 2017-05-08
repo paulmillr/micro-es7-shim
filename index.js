@@ -34,5 +34,27 @@ install(Object, {
     return keys(obj, key => obj[key]);
   },
 });
+
+install(Promise, {
+  try(fn) {
+    return new this(resolve => {
+      resolve(fn());
+    });
+  },
+});
+
+install(Promise.prototype, {
+  finally(fn) {
+    if (typeof fn !== 'function') {
+      return this.then(fn, fn);
+    }
+
+    return this.then(val => {
+      return Promise.try(fn).then(() => val);
+    }, err => {
+      return Promise.try(fn).then(() => {
+        throw err;
+      });
+    });
   },
 });
