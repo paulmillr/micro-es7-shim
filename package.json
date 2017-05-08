@@ -16,6 +16,9 @@
   "bugs": "https://github.com/paulmillr/micro-es7-shim/issues",
   "license": "MIT",
   "author": "Aleksey Shvayka, Paul Miller (http://paulmillr.com)",
+  "files": [
+    "index.js"
+  ],
   "repository": "paulmillr/micro-es7-shim",
   "scripts": {
     "test:object": "test262-harness test262/test/**/*.js --prelude index.js",
