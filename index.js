@@ -21,7 +21,9 @@ install(Array.prototype, {
 });
 
 // https://bugs.chromium.org/p/v8/issues/detail?id=5059
-[][Symbol.unscopables].includes = true;
+if (typeof Symbol !== 'undefined' && typeof Symbol.unscopables !== 'undefined') {
+  [][Symbol.unscopables].includes = true;
+}
 
 install(Object, {
   values(object) {
