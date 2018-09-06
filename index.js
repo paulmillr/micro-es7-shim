@@ -22,7 +22,7 @@ install(Array.prototype, {
 
 // https://bugs.chromium.org/p/v8/issues/detail?id=5059
 if (typeof Symbol !== 'undefined' && typeof Symbol.unscopables !== 'undefined') {
-  [][Symbol.unscopables].includes = true;
+  Array.prototype[Symbol.unscopables].includes = true;
 }
 
 install(Object, {
